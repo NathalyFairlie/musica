@@ -1,0 +1,39 @@
+/* Estilos para o modo escuro */
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.container {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+input[type="number"],
+textarea {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #007bff;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+}

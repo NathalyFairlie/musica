@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alternar Tema</title>
+    <link id="theme-stylesheet" rel="stylesheet" href="/css/style.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/tema.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a th:href="@{/musicas}">Listar Músicas</a></li>
+            <li><a th:href="@{/musicas/novo}">Cadastrar Música</a></li>
+            <li><button id="temaBtn">Mudar Tema</button></li>
+        </ul>
+    </nav>
+</body>
+</html>

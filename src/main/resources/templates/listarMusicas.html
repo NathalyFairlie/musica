@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Músicas</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/scripts.js"></script>
+</head>
+<body>
+    <header th:insert="navbar.html"></header>
+
+    <h1>Lista de Músicas</h1>
+
+    <table id="tabelaMusicas">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Gênero</th>
+                <th>Artista</th>
+                <th>Ano de Lançamento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="musica : ${musicas}" th:id="'musica-' + ${musica.id}">
+                <td th:text="${musica.nome}"></td>
+                <td th:text="${musica.genero}"></td>
+                <td th:text="${musica.artista}"></td>
+                <td th:text="${musica.anoLancamento}"></td>
+                <td>
+                   
+                    <a th:href="@{/musicas/editar/{id}(id=${musica.id})}">Editar</a> |
+                    <a href="#" class="deletar-musica" th:data-musica-id="${musica.id}">Deletar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            function getCsrfToken() {
+                var csrfToken = null;
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.startsWith('X-CSRF-TOKEN=')) {
+                        csrfToken = decodeURIComponent(cookie.substring('X-CSRF-TOKEN='.length, cookie.length));
+                        break;
+                    }
+                }
+                return csrfToken;
+            }
+
+            $('#tabelaMusicas').on('click', '.deletar-musica', function (event) {
+                event.preventDefault();
+                var musicaId = $(this).data('musica-id');
+                var csrfToken = getCsrfToken();
+
+                if (confirm('Tem certeza de que deseja deletar esta música?')) {
+                    $.ajax({
+                        url: `/api/musicas/${musicaId}`,
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        success: function () {
+                            $('#musica-' + musicaId).remove();
+                            alert('Música deletada com sucesso!');
+                        },
+                        error: function (error) {
+                            alert('Erro ao deletar a música. Detalhes: ' + error.responseText);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
