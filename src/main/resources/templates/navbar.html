@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Alternar Tema</title>
+    <title>Navbar</title>
     <link id="theme-stylesheet" rel="stylesheet" href="/css/style.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/tema.js"></script>
@@ -12,7 +12,7 @@
         <ul>
             <li><a th:href="@{/musicas}">Listar Músicas</a></li>
             <li><a th:href="@{/musicas/novo}">Cadastrar Música</a></li>
-            <li><button id="temaBtn">Mudar Tema</button></li>
+            <li><button id="temaBtn" style="color: white; background-color: #4CAF50;">Mudar Tema</button></li>
         </ul>
     </nav>
 </body>

@@ -8,7 +8,7 @@
     <script src="/js/scripts.js"></script>
 </head>
 <body>
-    <header th:insert="navbar.html"></header>
+    <header th:insert="navbar.html"></header> <!-- Navbar incluída -->
 
     <h1>Lista de Músicas</h1>
 
@@ -29,7 +29,6 @@
                 <td th:text="${musica.artista}"></td>
                 <td th:text="${musica.anoLancamento}"></td>
                 <td>
-                   
                     <a th:href="@{/musicas/editar/{id}(id=${musica.id})}">Editar</a> |
                     <a href="#" class="deletar-musica" th:data-musica-id="${musica.id}">Deletar</a>
                 </td>
@@ -39,31 +38,13 @@
 
     <script>
         $(document).ready(function () {
-            function getCsrfToken() {
-                var csrfToken = null;
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                    if (cookie.startsWith('X-CSRF-TOKEN=')) {
-                        csrfToken = decodeURIComponent(cookie.substring('X-CSRF-TOKEN='.length, cookie.length));
-                        break;
-                    }
-                }
-                return csrfToken;
-            }
-
             $('#tabelaMusicas').on('click', '.deletar-musica', function (event) {
                 event.preventDefault();
                 var musicaId = $(this).data('musica-id');
-                var csrfToken = getCsrfToken();
-
                 if (confirm('Tem certeza de que deseja deletar esta música?')) {
                     $.ajax({
                         url: `/api/musicas/${musicaId}`,
                         type: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': csrfToken
-                        },
                         success: function () {
                             $('#musica-' + musicaId).remove();
                             alert('Música deletada com sucesso!');

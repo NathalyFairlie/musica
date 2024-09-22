@@ -13,7 +13,7 @@
         <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
         <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
 
-        <form id="editarMusicaForm" th:action="@{/musicas/editar/{id}(id=${musica.id})}" method="post" th:object="${musica}">
+        <form id="editarMusicaForm" th:action="@{/musicas/editar/{id}(id=${musica.id})}" method="post" th:object="${musica}" class="form-container">
             <input type="hidden" th:field="*{id}"/> 
 
             <div class="form-group">

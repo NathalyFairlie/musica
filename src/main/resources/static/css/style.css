@@ -1,0 +1,105 @@
+/* Estilos do tema claro */
+
+/* Estilos para o navbar */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: #4CAF50; /* Fundo verde */
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white; /* Letras brancas */
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #4CAF50; /* Fundo verde para botões */
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #45a049; /* Tom mais claro ao passar o mouse */
+}
+
+/* Estilos para a tabela de músicas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+th {
+    background-color: #4CAF50; /* Fundo verde para o cabeçalho */
+    color: white; /* Texto branco no cabeçalho */
+}
+
+td a {
+    color: #4CAF50; /* Links em verde */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50; /* Cor verde para o título */
+}
+
+/* Outros estilos gerais */
+body {
+    background-color: white; /* Fundo claro da página */
+    color: black; /* Texto escuro */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o contêiner */
+    margin: 20px; /* Margem ao redor do contêiner */
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column; /* Alinha os campos em coluna */
+    width: 300px; /* Largura do formulário */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Alinha rótulo e campo de entrada em coluna */
+    margin-bottom: 15px; /* Espaçamento entre os grupos de formulário */
+}
+
+label {
+    text-align: left; /* Alinha o rótulo à esquerda */
+}
+
+button {
+    background-color: #4CAF50; /* Fundo do botão */
+    color: black; /* Texto do botão em preto */
+    padding: 10px; /* Preenchimento interno do botão */
+    border: none; /* Sem bordas */
+    border-radius: 4px; /* Bordas arredondadas do botão */
+    cursor: pointer; /* Muda o cursor ao passar por cima */
+}
+
+button:hover {
+    background-color: #45a049; /* Cor do botão ao passar o mouse */
+}
